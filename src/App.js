@@ -2,12 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// If you use these imports… everything is fine!
+
 // import { interval } from 'rxjs/_esm2015/internal/observable/interval'
 // import { timer } from 'rxjs/_esm2015/internal/observable/timer'
 // import { take } from 'rxjs/_esm2015/internal/operators/take'
 // import { switchMap } from 'rxjs/_esm2015/internal/operators/switchMap'
 // import { takeUntil } from 'rxjs/_esm2015/internal/operators/takeUntil'
 // import { tap } from 'rxjs/_esm2015/internal/operators/tap'
+
+// But if you do this… No luck.
 
 import { interval } from 'rxjs/observable/interval'
 import { timer } from 'rxjs/observable/timer'
