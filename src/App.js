@@ -2,6 +2,27 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// import { interval } from 'rxjs/_esm2015/internal/observable/interval'
+// import { timer } from 'rxjs/_esm2015/internal/observable/timer'
+// import { take } from 'rxjs/_esm2015/internal/operators/take'
+// import { switchMap } from 'rxjs/_esm2015/internal/operators/switchMap'
+// import { takeUntil } from 'rxjs/_esm2015/internal/operators/takeUntil'
+// import { tap } from 'rxjs/_esm2015/internal/operators/tap'
+
+import { interval } from 'rxjs/observable/interval'
+import { timer } from 'rxjs/observable/timer'
+import { take, switchMap, takeUntil, tap } from 'rxjs/operators'
+
+const x = interval(100).pipe(
+      switchMap(() => interval(20).pipe(tap(x => console.log(x)))),
+      tap(x => console.warn(x)),
+    ).subscribe()
+
+    setTimeout(() => {
+      console.log('END')
+      x.unsubscribe()
+    }, 1000)
+
 function App() {
   return (
     <div className="App">
